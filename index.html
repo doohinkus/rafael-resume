@@ -1,143 +1,396 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rafael Perez – Resume</title>
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rafael Perez – Resume</title>
+    <meta name="description" content="Rafael Perez - Software Engineer resume (React, TypeScript, AWS, CI/CD)" />
+    <meta property="og:title" content="Rafael Perez - Resume" />
+    <meta property="og:description" content="Professional resume for Rafael Perez, Software Engineer" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://resume.bluespicemachine.org" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Rafael Perez - Resume" />
+    <meta name="twitter:description" content="Professional resume for Rafael Perez, Software Engineer" />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
 
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      font-size: 15px;
-      line-height: 1.6;
-      color: #1a1a1a;
-      background: #fff;
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 48px 24px 64px;
-    }
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+          Arial, sans-serif;
+        font-size: 15px;
+        line-height: 1.6;
+        color: #1a1a1a;
+        background: #fff;
+        max-width: 860px;
+        margin: 0 auto;
+        padding: 48px 24px 64px;
+      }
 
-    h1 { font-size: 28px; margin-bottom: 4px; }
-    h2 { font-size: 18px; margin-top: 28px; margin-bottom: 10px; padding-bottom: 6px; border-bottom: 2px solid #1a1a1a; text-transform: uppercase; letter-spacing: 0.5px; }
-    h3 { font-size: 16px; margin-top: 16px; margin-bottom: 2px; }
-    h4 { font-size: 14px; font-weight: 600; font-style: italic; margin-bottom: 8px; color: #444; }
+      h1 {
+        font-size: 28px;
+        margin-bottom: 4px;
+      }
+      h2 {
+        font-size: 18px;
+        margin-top: 28px;
+        margin-bottom: 10px;
+        padding-bottom: 6px;
+        border-bottom: 2px solid #1a1a1a;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+      h3 {
+        font-size: 16px;
+        margin-top: 16px;
+        margin-bottom: 2px;
+      }
+      h4 {
+        font-size: 14px;
+        font-weight: 600;
+        font-style: italic;
+        margin-bottom: 8px;
+        color: #444;
+      }
 
-    a { color: #0366d6; text-decoration: none; }
-    a:hover { text-decoration: underline; }
+      a {
+        color: #0366d6;
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
 
-    hr { border: none; border-top: 1px solid #ddd; margin: 20px 0; }
+      hr {
+        border: none;
+        border-top: 1px solid #ddd;
+        margin: 20px 0;
+      }
 
-    ul { padding-left: 20px; margin-bottom: 10px; }
-    li { margin-bottom: 4px; }
+      ul {
+        padding-left: 20px;
+        margin-bottom: 10px;
+      }
+      li {
+        margin-bottom: 4px;
+      }
 
-    .header { margin-bottom: 20px; }
-    .header a { font-size: 14px; }
+      .header {
+        margin-bottom: 20px;
+      }
+      .header a {
+        font-size: 14px;
+      }
 
-    .job { margin-bottom: 18px; }
-    .job-header { display: flex; justify-content: space-between; flex-wrap: wrap; }
-    .job-title { font-weight: 700; }
-    .job-date { color: #555; font-size: 14px; }
+      .job {
+        margin-bottom: 18px;
+      }
+      .job-header {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+      .job-title {
+        font-weight: 700;
+      }
+      .job-date {
+        color: #555;
+        font-size: 14px;
+      }
 
-    .skills-grid { display: grid; grid-template-columns: 140px 1fr; gap: 6px 12px; }
-    .skills-label { font-weight: 600; }
+      .skills-grid {
+        display: grid;
+        grid-template-columns: 140px 1fr;
+        gap: 6px 12px;
+      }
+      .skills-label {
+        font-weight: 600;
+      }
 
-    @media print {
-      body { padding: 20px; font-size: 12px; }
-      h1 { font-size: 22px; }
-      h2 { margin-top: 18px; font-size: 14px; }
-    }
-  </style>
-</head>
-<body>
+      #button-container {
+        display: flex;
+        gap: 8px;
+        margin-top: 12px;
+      }
+      #print-btn,
+      #share-btn {
+        padding: 8px 16px;
+        background: #f0f0f0;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        cursor: pointer;
+        font-family: inherit;
+        font-size: 14px;
+      }
+      #print-btn:hover,
+      #share-btn:hover {
+        background: #e0e0e0;
+      }
+      #print-btn::after {
+        content: " (uncheck Headers & Footers in print dialog)";
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        margin-top: 4px;
+        padding: 6px 10px;
+        background: #333;
+        color: #fff;
+        font-size: 11px;
+        border-radius: 4px;
+        white-space: nowrap;
+        z-index: 1001;
+      }
+      #print-btn {
+        position: relative;
+      }
+      #print-btn:hover::after {
+        display: block;
+      }
 
-  <div class="header">
-    <h1>Rafael Perez</h1>
-    <a href="https://www.linkedin.com/in/rafael-perez/" target="_blank" rel="noopener">linkedin.com/in/rafael-perez</a>
-  </div>
-
-  <hr>
-
-  <h2>Professional Summary</h2>
-  <p>Full-stack JavaScript Engineer with 5+ years of experience at Yahoo and U.S. Bank. Led a Frontend Community of Practice, driving a11y, TDD, and micro-frontend adoption. Built secure, accessible UI components scaling to millions of users. Identified and resolved critical bugs in legacy code. Implemented Brand Indicators for Message Identification (BIMI) in Yahoo Mail apps.</p>
-
-  <h2>Highlights of Qualifications</h2>
-  <div class="skills-grid">
-    <span class="skills-label">Frontend:</span>
-    <span>React, TypeScript, JavaScript (ES6+), jQuery, HTML5, CSS3 (SCSS, PostCSS, Tailwind, Daisy UI, Atomic CSS), A11y (Deque, Axe)</span>
-
-    <span class="skills-label">Backend &amp; DB:</span>
-    <span>Node.js / Typescript (Express), RESTful APIs, GraphQL, MySQL, MongoDB, Java (SpringBoot basics)</span>
-
-    <span class="skills-label">Testing &amp; Quality:</span>
-    <span>Playwright, TDD, Jest, Cypress, React Testing Library</span>
-
-    <span class="skills-label">DevOps &amp; Cloud:</span>
-    <span>CI/CD (Jenkins, NGINX, Docker, Kubernetes, Screwdriver, Circle CI), AWS, Azure, GCP</span>
-
-    <span class="skills-label">Methodologies:</span>
-    <span>Agile (Scrum, Kanban), Story mapping, Storybook, AI Driven Development, Refinement, Spec Driven Development, Jira, V1</span>
-  </div>
-
-  <h2>Experience</h2>
-
-  <div class="job">
-    <div class="job-header">
-      <span class="job-title">Yahoo – Senior Software Engineer II (Desktop Mail - Commerce)</span>
-      <span class="job-date">2022 – Present</span>
+      @media print {
+        @page {
+          margin: 0.5in;
+        }
+        body {
+          padding: 20px;
+          font-size: 12px;
+        }
+        h1 {
+          font-size: 22px;
+        }
+        h2 {
+          margin-top: 18px;
+          font-size: 14px;
+        }
+        #print-btn,
+        #share-btn {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <h1>Rafael Perez</h1>
+      <a
+        href="https://www.linkedin.com/in/rafael-perez/"
+        target="_blank"
+        rel="noopener"
+        >linkedin.com/in/rafael-perez</a
+      >
+      <div id="button-container">
+        <button id="share-btn" onclick="shareResume()">Share</button>
+        <button id="print-btn" onclick="window.print()">Print / Save as PDF</button>
+      </div>
     </div>
-    <h4>Key Contributions</h4>
-    <ul>
-      <li>Reduced UI defects by 29% through systematic refactoring and test-driven development.</li>
-      <li>Documented legacy UI modules, cutting onboarding time for new engineers by 40%.</li>
-      <li>Established process for 3rd party account provisioning—which allowed the team to identify and resolve 3 critical bugs.</li>
-      <li>Led PR reviews for 10+ engineers, ensuring a11y and security compliance.</li>
-      <li>Documented step by step process to connect Claude to company MCP servers—increasing team's velocity by 11%.</li>
-      <li>Troubleshot and resolved minor CI/CD pipeline issues.</li>
-    </ul>
-  </div>
 
-  <div class="job">
-    <div class="job-header">
-      <span class="job-title">U.S. Bank – Software Engineer I (UI Developer, Integrated Card Systems)</span>
-      <span class="job-date">2019 – 2022</span>
+    <hr />
+
+    <h2>Professional Summary</h2>
+    <p>
+      Full-stack JavaScript Engineer with 5+ years of experience at Yahoo and
+      U.S. Bank. Led a Frontend Community of Practice, driving a11y, TDD, and
+      micro-frontend adoption. Built secure, accessible UI components scaling to
+      millions of users. Identified and resolved critical bugs in legacy code.
+      Wrote middleware leveraging Yahoo’s WOED identifiers to align general
+      consents with both US and global privacy compliance standards. Implemented
+      Brand Indicators for Message Identification (BIMI) in Yahoo Mail apps.
+    </p>
+
+    <h2>Highlights of Qualifications</h2>
+    <div class="skills-grid">
+      <span class="skills-label">Frontend:</span>
+      <span
+        >React, TypeScript, JavaScript (ES6+), jQuery, HTML5, CSS3 (SCSS,
+        PostCSS, Tailwind, Daisy UI, Atomic CSS), A11y (Deque, Axe)</span
+      >
+
+      <span class="skills-label">Backend &amp; DB:</span>
+      <span
+        >Node.js / Typescript (Express), RESTful APIs, GraphQL, MySQL, MongoDB,
+        Java (SpringBoot basics)</span
+      >
+
+      <span class="skills-label">Testing &amp; Quality:</span>
+      <span>Playwright, TDD, Jest, Cypress, React Testing Library</span>
+
+      <span class="skills-label">DevOps &amp; Cloud:</span>
+      <span
+        >CI/CD (Jenkins, NGINX, Docker, Kubernetes, Screwdriver, Circle CI),
+        AWS, Azure, GCP</span
+      >
+
+      <span class="skills-label">Methodologies:</span>
+      <span
+        >Agile (Scrum, Kanban), Story mapping, Storybook, AI Driven Development,
+        Refinement, Spec Driven Development, Jira, V1</span
+      >
     </div>
-    <h4>Key Contributions</h4>
-    <ul>
-      <li>Founded and led the Frontend Community of Practice (30+ onshore/offshore engineers), increasing code reuse and a11y adoption.</li>
-      <li>Delivered accessible, responsive UI for credit card systems used by millions of customers.</li>
-      <li>Migrated legacy jQuery components to React + TypeScript, improving maintainability.</li>
-      <li>Added test coverage and metrics to the build process.</li>
-      <li>Authored technical documentation and enforced TDD best practices.</li>
-    </ul>
-  </div>
 
-  <div class="job">
-    <div class="job-header">
-      <span class="job-title">Valen Arts, LLC – Webmaster</span>
-      <span class="job-date">2017 – 2019</span>
+    <h2>Experience</h2>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="job-title"
+          >Yahoo – Senior Software Engineer II (Desktop Mail - Commerce)</span
+        >
+        <span class="job-date">2022 – Present</span>
+      </div>
+      <h4>Key Contributions</h4>
+      <ul>
+        <li>
+          Reduced UI defects by 29% through systematic refactoring and
+          test-driven development.
+        </li>
+        <li>
+          Documented legacy UI modules, cutting onboarding time for new
+          engineers by 40%.
+        </li>
+        <li>
+          Established process for 3rd party account provisioning—which allowed
+          the team to identify and resolve 3 critical bugs.
+        </li>
+        <li>
+          Led PR reviews for 10+ engineers, ensuring a11y and security
+          compliance.
+        </li>
+        <li>
+          Documented step by step process to connect Claude to company MCP
+          servers—increasing team's velocity by 11%.
+        </li>
+        <li>Troubleshot and resolved minor CI/CD pipeline issues.</li>
+      </ul>
     </div>
-    <h4>Key Contributions</h4>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="job-title"
+          >U.S. Bank – Software Engineer I (UI Developer, Integrated Card
+          Systems)</span
+        >
+        <span class="job-date">2019 – 2022</span>
+      </div>
+      <h4>Key Contributions</h4>
+      <ul>
+        <li>
+          Founded and led the Frontend Community of Practice (30+
+          onshore/offshore engineers), increasing code reuse and a11y adoption.
+        </li>
+        <li>
+          Delivered accessible, responsive UI for credit card systems used by
+          millions of customers.
+        </li>
+        <li>
+          Migrated legacy jQuery components to React + TypeScript, improving
+          maintainability.
+        </li>
+        <li>Added test coverage and metrics to the build process.</li>
+        <li>
+          Authored technical documentation and enforced TDD best practices.
+        </li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="job-title">Valen Arts, LLC – Webmaster</span>
+        <span class="job-date">2017 – 2019</span>
+      </div>
+      <h4>Key Contributions</h4>
+      <ul>
+        <li>
+          Built custom CMS interfaces using atomic design and user story
+          mapping.
+        </li>
+        <li>
+          Implemented responsive, accessible frontends ahead of industry a11y
+          standards.
+        </li>
+        <li>
+          Created wireframes, user stories, and atomic designs to guide
+          development.
+        </li>
+        <li>
+          Ensured design patterns and best practices across all codebases.
+        </li>
+      </ul>
+    </div>
+
+    <h2>Education</h2>
+    <p>
+      <strong>San Jose State University</strong><br />
+      M.S. in Library &amp; Information Science – Information Architecture
+    </p>
+
+    <p style="margin-top: 8px">
+      <strong>San Jose State University</strong><br />
+      B.A. in Communication Studies
+    </p>
+
+    <p style="margin-top: 8px"><strong>Google Cloud Skills Boost</strong></p>
     <ul>
-      <li>Built custom CMS interfaces using atomic design and user story mapping.</li>
-      <li>Implemented responsive, accessible frontends ahead of industry a11y standards.</li>
-      <li>Created wireframes, user stories, and atomic designs to guide development.</li>
-      <li>Ensured design patterns and best practices across all codebases.</li>
+      <li>Google Cloud Fundamentals: Core Infrastructure</li>
+      <li>Kubernetes in Google Cloud</li>
     </ul>
-  </div>
 
-  <h2>Education</h2>
-  <p><strong>San Jose State University</strong><br>
-  M.S. in Library &amp; Information Science – Information Architecture</p>
+    <script>
+      (function() {
+        const shareBtn = document.getElementById('share-btn');
+        let resetTimer = null;
 
-  <p style="margin-top: 8px;"><strong>San Jose State University</strong><br>
-  B.A. in Communication Studies</p>
+        function shareResume() {
+          const url = window.location.href;
+          const title = document.title;
 
-  <p style="margin-top: 8px;"><strong>Google Cloud Skills Boost</strong></p>
-  <ul>
-    <li>Google Cloud Fundamentals: Core Infrastructure</li>
-    <li>Kubernetes in Google Cloud</li>
-  </ul>
+          if (navigator.share) {
+            navigator.share({ title, url })
+              .catch(function(err) {
+                if (err.name !== 'AbortError') {
+                  fallbackCopy(url);
+                }
+              });
+            return;
+          }
 
-</body>
+          fallbackCopy(url);
+        }
+
+        function fallbackCopy(url) {
+          if (navigator.clipboard && window.isSecureContext) {
+            navigator.clipboard.writeText(url).then(function() {
+              showFeedback('Link copied!');
+            }).catch(function() {
+              showPrompt(url);
+            });
+          } else {
+            showPrompt(url);
+          }
+        }
+
+        function showFeedback(message) {
+          if (resetTimer) clearTimeout(resetTimer);
+          const original = shareBtn.textContent;
+          shareBtn.textContent = message;
+          resetTimer = setTimeout(function() {
+            shareBtn.textContent = original;
+            resetTimer = null;
+          }, 2000);
+        }
+
+        function showPrompt(url) {
+          prompt('Copy this link:', url);
+        }
+
+        window.shareResume = shareResume;
+      })();
+    </script>
+  </body>
 </html>
