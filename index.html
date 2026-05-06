@@ -166,6 +166,14 @@
         display: block;
       }
 
+      @media (max-width: 600px) {
+        #print-btn,
+        #share-btn,
+        #linkedin-btn {
+          padding: 4px 16px;
+        }
+      }
+
       @media print {
         @page {
           margin: 0.5in;
@@ -195,9 +203,7 @@
       <div id="button-container">
         <button id="linkedin-btn" onclick="window.open('https://www.linkedin.com/in/rafael-perez/', '_blank')">LinkedIn</button>
         <button id="share-btn" onclick="shareResume()">Share</button>
-        <button id="print-btn" onclick="window.print()">
-          Print / Save as PDF
-        </button>
+        <button id="print-btn" onclick="window.print()">Print</button>
       </div>
     </div>
 
