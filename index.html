@@ -166,12 +166,8 @@
         display: block;
       }
 
-      @media (max-width: 600px) {
-        #print-btn,
-        #share-btn,
-        #linkedin-btn {
-          padding: 4px 16px;
-        }
+      .education-entries article + article {
+        margin-top: 8px;
       }
 
       @media print {
@@ -341,17 +337,21 @@
     </div>
 
     <h2>Education</h2>
-    <p>
-      <strong>San Jose State University</strong><br />
-      M.S. in Library &amp; Information Science – Information Architecture
-    </p>
+    <div class="education-entries">
+    <article>
+      <h3>San Jose State University</h3>
+      <p>M.S. in Library &amp; Information Science – Information Architecture</p>
+    </article>
 
-    <p style="margin-top: 8px">
-      <strong>San Jose State University</strong><br />
-      B.A. in Communication Studies
-    </p>
+    <article>
+      <h3>San Jose State University</h3>
+      <p>B.A. in Communication Studies</p>
+    </article>
 
-    <p style="margin-top: 8px"><strong>Google Cloud Skills Boost</strong></p>
+    <article>
+      <h3>Google Cloud Skills Boost</h3>
+    </article>
+    </div>
     <ul>
       <li>Google Cloud Fundamentals: Core Infrastructure</li>
       <li>Kubernetes in Google Cloud</li>
