@@ -129,7 +129,8 @@
         margin-top: 12px;
       }
       #print-btn,
-      #share-btn {
+      #share-btn,
+      #linkedin-btn {
         padding: 8px 16px;
         background: #f0f0f0;
         border: 1px solid #ccc;
@@ -139,7 +140,8 @@
         font-size: 14px;
       }
       #print-btn:hover,
-      #share-btn:hover {
+      #share-btn:hover,
+      #linkedin-btn:hover {
         background: #e0e0e0;
       }
       #print-btn::after {
@@ -180,7 +182,8 @@
           font-size: 14px;
         }
         #print-btn,
-        #share-btn {
+        #share-btn,
+        #linkedin-btn {
           display: none;
         }
       }
@@ -189,8 +192,8 @@
   <body>
     <div class="header">
       <h1>Rafael Perez</h1>
-      <a href="https://www.linkedin.com/in/rafael-perez/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
       <div id="button-container">
+        <button id="linkedin-btn" onclick="window.open('https://www.linkedin.com/in/rafael-perez/', '_blank')">LinkedIn</button>
         <button id="share-btn" onclick="shareResume()">Share</button>
         <button id="print-btn" onclick="window.print()">
           Print / Save as PDF
