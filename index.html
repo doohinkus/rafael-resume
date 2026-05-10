@@ -134,7 +134,6 @@
         margin-top: 12px;
       }
       #print-btn,
-      #share-btn,
       #linkedin-btn {
         padding: 8px 16px;
         background: #f0f0f0;
@@ -145,7 +144,6 @@
         font-size: 0.875rem;
       }
       #print-btn:hover,
-      #share-btn:hover,
       #linkedin-btn:hover {
         background: #e0e0e0;
       }
@@ -191,7 +189,6 @@
           font-size: 0.875rem;
         }
         #print-btn,
-        #share-btn,
         #linkedin-btn {
           display: none;
         }
@@ -204,7 +201,6 @@
       <a href="mailto:bluespicemachine+resume@gmail.com" class="email">bluespicemachine+resume@gmail.com</a>
       <div id="button-container">
         <button id="linkedin-btn" onclick="window.open('https://www.linkedin.com/in/rafael-perez/', '_blank')">LinkedIn</button>
-        <button id="share-btn" onclick="shareResume()">Share</button>
         <button id="print-btn" onclick="window.print()">Print</button>
       </div>
     </div>
@@ -364,57 +360,5 @@
     </ul>
 
     <script>
-      (function () {
-        const shareBtn = document.getElementById("share-btn");
-        let resetTimer = null;
-
-        function shareResume() {
-          const url = window.location.href;
-          const title = document.title;
-
-          if (navigator.share) {
-            navigator.share({ title, url }).catch(function (err) {
-              if (err.name !== "AbortError") {
-                fallbackCopy(url);
-              }
-            });
-            return;
-          }
-
-          fallbackCopy(url);
-        }
-
-        function fallbackCopy(url) {
-          if (navigator.clipboard && window.isSecureContext) {
-            navigator.clipboard
-              .writeText(url)
-              .then(function () {
-                showFeedback("Link copied!");
-              })
-              .catch(function () {
-                showPrompt(url);
-              });
-          } else {
-            showPrompt(url);
-          }
-        }
-
-        function showFeedback(message) {
-          if (resetTimer) clearTimeout(resetTimer);
-          const original = shareBtn.textContent;
-          shareBtn.textContent = message;
-          resetTimer = setTimeout(function () {
-            shareBtn.textContent = original;
-            resetTimer = null;
-          }, 2000);
-        }
-
-        function showPrompt(url) {
-          prompt("Copy this link:", url);
-        }
-
-        window.shareResume = shareResume;
-      })();
-    </script>
   </body>
 </html>
